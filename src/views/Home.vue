@@ -1,25 +1,18 @@
 <template>
   <div class="home">
-    <base-header/>
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import BaseHeader from '@/components/BaseHeader.vue'
+import HelloWorld from '@/components/test.vue'
 
 export default {
   name: 'Home',
   components: {
-    BaseHeader
+    HelloWorld
   }
 }
 </script>
-
-<style lang="less" scoped>
-.home{
-  height: 100%;
-  width: 100%;
-}
-</style>
-
