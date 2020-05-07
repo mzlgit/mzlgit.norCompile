@@ -38,6 +38,7 @@
     </v-app-bar>
 
     <v-content>
+      <h3 class="display-4">test</h3>
       <HelloWorld/>
     </v-content>
   </v-app>
