@@ -1,18 +1,40 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld />
+  <div class="about">
+    <About/>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/test.vue'
+import About from './About';
 
 export default {
-  name: 'Home',
+  data() {
+    return {
+      drawer: true,
+      items: [
+        { title: "Dashboard", icon: "mdi-view-dashboard" },
+        { title: "Photos", icon: "mdi-image" },
+        { title: "About", icon: "mdi-help-box" }
+      ],
+      color: "primary",
+      colors: ["primary", "blue", "success", "red", "teal"],
+      right: false,
+      permanent: true,
+      expandOnHover: false,
+    };
+  },
   components: {
-    HelloWorld
+    About
+  },
+  computed: {
+    
   }
-}
+};
 </script>
+
+<style lang="less" scoped>
+.about{
+  height: 900px;
+}
+</style>
