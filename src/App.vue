@@ -1,79 +1,63 @@
 <template>
   <v-app>
     <v-app-bar
-      color="deep-purple"
+      color="#2979FF"
       v-if="isSmallScreen"
       app
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawpper = true"></v-app-bar-nav-icon>
       <v-toolbar-title>Title</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" :color="color" disable-resize-watcher app>
-      <v-list dense nav class="py-0">
-        <v-list-item two-line :class="'px-0'">
-          <v-list-item-avatar>
-            <img src="https://randomuser.me/api/portraits/men/81.jpg">
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title>Application</v-list-item-title>
-            <v-list-item-subtitle>Subtext</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
-
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <M-nav :smallStatus="isSmallScreen" :drawerStatus="drawer" :drawpper="drawpper" @changeStatus="changeStatus"></M-nav>
     <v-content app>
-      <Home/>
+      <router-view></router-view>
     </v-content>
     <v-footer>2222</v-footer>
   </v-app>
 </template>
 
 <script>
-import Home from './views/Home';
+// import Home from './views/Home';
+import MNav from './views/Nav';
 
 export default {
   name: 'App',
   components: {
-    Home,
+    MNav
   },
   data: () => ({
     drawer: true,
-      items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard" },
-        { title: "Photos", icon: "mdi-image" },
-        { title: "About", icon: "mdi-help-box" }
-      ],
-      color: "primary",
-      colors: ["primary", "blue", "success", "red", "teal"],
-      isSmallScreen: false,
-    //
+    drawpper: false,
+    isSmallScreen: false,
   }),
   methods: {
       handleResize () {
         let width = (window.innerWidth > 0) ? window.innerWidth : screen.width
         if (width < 1024) {
-          this.isSmallScreen = true
-          this.drawer = false
+          this.isSmallScreen = true;
+          this.drawer = false;
+          this.$store.commit("setScreen", true)
         } else {
-          this.isSmallScreen = false
-          this.drawer = true
+          this.isSmallScreen = false;
+          this.$store.commit("setScreen", false)
+          this.drawer = true;
         }
+        let containerList = document.getElementsByClassName("container");
+        containerList.forEach(element => {
+          element.style.padding = this.$store.state.isSmallScreen ? "12px" : "22px"
+        });
       },
       showSidebar () {
         this.isIconClicked = !this.isIconClicked
       },
+      changeStatus(val) {
+        if(!val) {
+          this.drawer = false;
+          this.drawpper = false;
+        } else {
+          this.drawer = true;
+        }
+      }
     },
   mounted () {
     this.handleResize()
