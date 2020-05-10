@@ -134,6 +134,9 @@ export default {
                 if(!this.smallStatus) {
                     this.drawer = true;
                 }
+                if(this.drawpper) {
+                    this.drawer = true;
+                }
             }
         },
         drawer: {

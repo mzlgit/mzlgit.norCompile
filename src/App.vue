@@ -31,34 +31,34 @@ export default {
     isSmallScreen: false,
   }),
   methods: {
-      handleResize () {
-        let width = (window.innerWidth > 0) ? window.innerWidth : screen.width
-        if (width < 1024) {
-          this.isSmallScreen = true;
-          this.drawer = false;
-          this.$store.commit("setScreen", true)
-        } else {
-          this.isSmallScreen = false;
-          this.$store.commit("setScreen", false)
-          this.drawer = true;
-        }
-        let containerList = document.getElementsByClassName("container");
-        containerList.forEach(element => {
-          element.style.padding = this.$store.state.isSmallScreen ? "12px" : "22px"
-        });
-      },
-      showSidebar () {
-        this.isIconClicked = !this.isIconClicked
-      },
-      changeStatus(val) {
-        if(!val) {
-          this.drawer = false;
-          this.drawpper = false;
-        } else {
-          this.drawer = true;
-        }
+    handleResize () {
+      let width = (window.innerWidth > 0) ? window.innerWidth : screen.width
+      if (width < 1024) {
+        this.isSmallScreen = true;
+        this.drawer = false;
+        this.$store.commit("setScreen", true)
+      } else {
+        this.isSmallScreen = false;
+        this.$store.commit("setScreen", false)
+        this.drawer = true;
       }
+      let containerList = document.getElementsByClassName("container");
+      containerList.forEach(element => {
+        element.style.padding = this.$store.state.isSmallScreen ? "12px" : "22px"
+      });
     },
+    showSidebar () {
+      this.isIconClicked = !this.isIconClicked
+    },
+    changeStatus(val) {
+      if(!val) {
+        this.drawer = false;
+        this.drawpper = false;
+      } else if(val) {
+        this.drawer = true;
+      }
+    }
+  },
   mounted () {
     this.handleResize()
     window.addEventListener('resize', this.handleResize, { passive: true })
