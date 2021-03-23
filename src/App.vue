@@ -12,7 +12,7 @@
     <v-content app>
       <router-view></router-view>
     </v-content>
-    <v-footer>2222</v-footer>
+    <!-- <v-footer>2222</v-footer> -->
   </v-app>
 </template>
 

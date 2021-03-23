@@ -10,10 +10,10 @@
             <v-divider></v-divider>
             <v-container class="avatar-container text-xs-center pt-5">
                 <div class="m-avatar elevation-1 mb-4">
-                    <img class="avatar" src="../assets/logo-name.png">
+                    <img class="avatar" src="../assets/toux2.png" style="width: 100%">
                 </div>
                 <p class="text-center mb-1">
-                    Margin
+                    mzl
                 </p>
                 <p class="text-center">
                     mzl' website
