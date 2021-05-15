@@ -6,7 +6,7 @@
       app
     >
       <v-app-bar-nav-icon @click="drawpper = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
+      <v-toolbar-title>mzl</v-toolbar-title>
     </v-app-bar>
     <M-nav :smallStatus="isSmallScreen" :drawerStatus="drawer" :drawpper="drawpper" @changeStatus="changeStatus"></M-nav>
     <v-content app>

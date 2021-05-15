@@ -30,7 +30,6 @@
                           <strong>{{ message.label }}</strong>
                           <p>{{ message.message }}</p>
                         </div>
-                        <!-- <div class="inset-um">{{ message.message }}</div> -->
                       </div>
                     </div>
                   </div>
@@ -60,18 +59,18 @@
                 :icon="item.icon"
                 fill-dot
               >
-                <v-card :color="item.color" dark>
-                  <v-card-title class="title">
+                <template v-slot:icon v-if="item.icons">
+                  <v-avatar>
+                    <img :src="item.icons">
+                  </v-avatar>
+                </template>
+
+                <v-card class="elevation-2" :color="item.color" dark>
+                  <v-card-title class="headline" >
                     {{item.name}} <small style="padding-left: 20px;font-size: 13px">{{item.time}}</small>
+                    <br><span class="name_desc">{{item.desc}}</span>
                   </v-card-title>
-                  <v-card-text class="white text--primary">
-                    <p>
-                      {{item.desc}}
-                    </p>
-                    <p>
-                      {{item.cont}}
-                    </p>
-                  </v-card-text>
+                  <v-card-text class="white text--primary">{{item.cont}}</v-card-text>
                 </v-card>
               </v-timeline-item>
             </v-timeline>
@@ -131,12 +130,20 @@ export default {
       ],
       companys: [
         {
+          name: "广州集天网络科技有限公司",
+          desc: "集天科技，是一家专注互联网、移动互联网原创软件开发及运营的公司，在社交、语音和视频技术研发、推广、运营，拥有丰富的项目技术积累。",
+          cont: "公司经营自己的产品，miya产品。主打海外市场，在社交、语音这块业务。H5前端负责的是一些运营的活动项目，有长期的活动项目也有短期的，一般都是一些短期项目，用于产品的用户的社交，例如周年系列，周年期间的年度用户个人的一些在miya产品里的一些数据报表。多为节日活动项目，在各国家地方区域的一些节日上开展一些活动项目，保持用户的粘度，或者拉新。项目开发的周期适中，预留了部分时间调度使用，各环节都能有效的交流合作。",
+          time: "2021/03 - ",
+          color: "yellow",
+          icons: require("../assets/miya.jpeg"),
+        },
+        {
           name: "广州明动软件股份有限公司",
           desc: "广州明动软件股份有限公司是一家专注政府领域，专门从事软件开发、系统集成、业务运营以及信息化咨询服务的公司。",
           cont: "在公司期间，完成三个项目，每个项目大概2-3个系统（pc + webapp + 微信端公众号+小程序），项目内容为政府单位系统：政策申报、业务管理、内部绩效等定制化内容。在学习方面，学习到了关于OA工作流的工作模式，利用OA工作流根据组织架构信息处理业务数据。使用到的技术栈为 vue 的居多，使用到的ui库有element adt vant iview等主流ui库；pc端的后台管理系统普遍为jsp项目，搭配公司的内部ui库使用。大部分的项目为独立开发，配合后台同事完成项目，通常是1：2或者2：4的前后端人数比例，项目的整体开发时长不一定，按甲方需求改变，普遍一个项目开发周期为九个月左右。这是一段很美好的回忆。",
           time: "2018/09 - 2020/12",
           color: "red lighten-2",
-          icon: "mdi-star",
+          icons: require("../assets/minstone.png"),
         },
         {
           name: "广联网络（广东）有限公司",
@@ -151,7 +158,7 @@ export default {
           time: "2013/09-2017/06",
           cont: "大学四年，学习很多东西，一群好朋友陪伴走过四个春秋，也将陪伴着。",
           color: "green lighten-1",
-          icon: "mdi-airballoon",
+          icon: "mdi-buffer",
         }
       ],
     };
@@ -190,5 +197,10 @@ export default {
 }
 h1 {
   text-align: center;
+}
+.name_desc{
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
 }
 </style>
