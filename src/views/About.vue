@@ -25,7 +25,7 @@
                 <div class="vcard-um ml-10">
                   <div align-top class="vcard-item">
                     <div v-for="(message, idx) in messages" :key="idx">
-                      <div>
+                      <div @click="(message.message=='篮球' ? $router.push({name: 'dbcolor'}):'')">
                         <div class="font-weight-normal cont-um">
                           <strong>{{ message.label }}</strong>
                           <p>{{ message.message }}</p>
