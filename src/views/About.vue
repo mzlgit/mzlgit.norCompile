@@ -25,7 +25,8 @@
                 <div class="vcard-um ml-10">
                   <div align-top class="vcard-item">
                     <div v-for="(message, idx) in messages" :key="idx">
-                      <div @click="(message.message=='篮球' ? $router.push({name: 'dbcolor'}):'')">
+                      <!-- @click="(message.message=='篮球' ? $router.push({name: 'dbcolor'}):'')" -->
+                      <div>
                         <div class="font-weight-normal cont-um">
                           <strong>{{ message.label }}</strong>
                           <p>{{ message.message }}</p>
@@ -133,7 +134,7 @@ export default {
           name: "广州集天网络科技有限公司",
           desc: "集天科技，是一家专注互联网、移动互联网原创软件开发及运营的公司，在社交、语音和视频技术研发、推广、运营，拥有丰富的项目技术积累。",
           cont: "公司经营自己的产品，miya产品。主打海外市场，在社交、语音这块业务。H5前端负责的是一些运营的活动项目，有长期的活动项目也有短期的，一般都是一些短期项目，用于产品的用户的社交，例如周年系列，周年期间的年度用户个人的一些在miya产品里的一些数据报表。多为节日活动项目，在各国家地方区域的一些节日上开展一些活动项目，保持用户的粘度，或者拉新。项目开发的周期适中，预留了部分时间调度使用，各环节都能有效的交流合作。",
-          time: "2021/03 - ",
+          time: "2021/03 - 2022/09",
           color: "yellow",
           icons: require("../assets/miya.jpeg"),
         },

@@ -3,7 +3,7 @@
     <div class="home_bg"></div>
     <div class="home_cont">
       <div class="cont">
-        <p>一个偶尔的机会，发现github pages。感觉挺好玩。</p>
+        <p>github pages。感觉挺好玩。</p>
         <p>用来记录一些开发的内容，遇到的问题，学习的过程</p>
         <p>记录一些项目情况</p>
 
